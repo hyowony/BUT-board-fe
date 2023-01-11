@@ -9,5 +9,3 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("서버가 열렸습니다 ");
 });
-
-const express = require("express");
