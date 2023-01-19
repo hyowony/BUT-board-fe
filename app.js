@@ -1,6 +1,7 @@
-// const express = require("express");
+const express = require("express");
 
-// const app = express();
+const app = express();
+const cors = require("cors")
 
 // const senddata = document.getElementById("send")
 
@@ -13,7 +14,7 @@
 // </tr>
 // `
 // TextContent += tableresult
-// // innerHTML는 정보를 넣거나 뺄 수 있는 함수. 
+// innerHTML는 정보를 넣거나 뺄 수 있는 함수. 
 
 // const data = [
 //   {id:1,movie_title:"Misérables, Les",hit_count:23,user_id:1,created_at:"2022-08-11 00:40:32",name:"Trix Hannaby"},
@@ -38,11 +39,16 @@
 //   ] 
 
 
-// app.get("/", (req, res) => {
-//   res.send("홈페이지");
-// }); 
+app.get("/", (req, res) => {
+  res.send("홈페이지");
+}); 
+
+app.post("/fetch" , (req,res)=> {
+  res.send 
+
+})
 
 
-// app.listen(3000, () => {
-//   console.log("서버가 열렸습니다 ");
-// });
+app.listen(3000, () => {
+  console.log("서버가 열렸습니다 ");
+});
