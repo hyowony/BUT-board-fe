@@ -4,20 +4,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>영화 하나 가져오기</title>
 </head>
 <body>
+  <h1><span id= "movie_title"></span></h1>
   <ul>
-<li> id: <span id ="movies_title"></span></li>
-<li> 제목: <span id="name"></span></li>
-<li> 작성자 : <span id ="created_at"></span></li>
-<li> id: <span></span></li>
+<li> id: <span id="id"></span></li>
+<li> 등록자 : <span id="name"></span></li>
+<li> 작성일 :<span id="created_at"></span></li>
 
+ 
 
   </ul>
-  <script>
-fetch
-
-  </script>
 </body>
 </html>
+<!-- /// body안에다 script을 넣어선 안 된다 . 외부 스크립트를 쓸 때 쓴다 defer -->
+
+  <script>
+// 영화 하나 가져오기
+fetch('http://localhost:3100/movies/1')
+  .then((response) => response.json())
+  .then((movie) => {
+      // console.log("영화 하나 가져오기 :",  movie)
+      //여기까지는 정상 작동.. 왜 밑에 것이 안 되지?
+
+      console.log(document.getElementById("movie_title"))
+      document.getElementById("movie_title").innerHTML = movie.movie_title
+      // movie.html:32 Uncaught (in promise) TypeError: Cannot set properties of null (setting 'innerHTML')
+      // movie_title을 뽑아야하는데 movies_title을 입력하여 null이 되었다. 다음부터는 오타에 주의하자. 
+      document.getElementById("id").innerHTML = movie.id
+      document.getElementById("name").innerHTML = movie.user_id
+      document.getElementById("created_at").innerHTML = movie.created_at
+      
+  });
+
+  </script>
+
