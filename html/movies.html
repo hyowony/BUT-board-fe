@@ -89,7 +89,7 @@ const data = [
             <th>제목</th>
             <th>등록자</th>
             <th>조회수</th>
-            <th>등록날자</th>
+            <th>등록일</th>
         </tr>
         <tbody id="movies">
             <!-- //id로 태그를 가져오는 방법이다 -->
@@ -105,18 +105,18 @@ fetch('http://localhost:3100/movies')
     //   console.log(movies)
    const html =  movies.map(movie=> {
     //map은 배열로 반환한다. 
-
+    //return 뒤에다 바로 백틱을 먹여야 인식하네? 
         return `
-        
+    
         <tr>
         <td>${movie.id}</td>
+        <td><a href="movie.html?id=${movie.id}">${movie.movie_title}</a></td>
          <td>${movie.movie_title}</td>
          <td>${movie.name}</td>
          <td>${movie.hit_count}</td>
          <td>${movie.created_at}</td>
-        </tr>
-            `
-        
+        </tr>`
+            
 // console.log(html)
 
 // document.getElementById('movies').innerHTML = html.join('')
