@@ -13,6 +13,11 @@ tr {border: 1px solid black ;
 }
 td {border: 1px solid black ;}
 
+li {
+  display: inline-block;
+  padding: 10px
+}
+
 
 
 </style>
@@ -74,6 +79,10 @@ td {border: 1px solid black ;}
             <!-- //id로 태그를 가져오는 방법이다 -->
         </tbody>
     </table>
+    <ul id="pagination">
+
+
+    </ul>
 </body>
 <script>
 // 영화 리스트
@@ -82,7 +91,7 @@ fetch('http://localhost:3100/movies')
   .then((movies) => {
     //   console.log("전체 영화 가져오기 : ", data)
     //   console.log(movies)
-   const html =  movies.map(movie=> {
+   const html =  movies.movies.map(movie=> {
     //map은 배열로 반환한다. 
     console.log(movie)
     //return 뒤에다 바로 백틱을 먹여야 인식하네? 
@@ -105,6 +114,20 @@ fetch('http://localhost:3100/movies')
     // console.log(html.join(''))
     document.getElementById('movies').innerHTML = html.join('')
     //요소를 id란 이름으로 넣어줘라. html안에다 우리가 위에 설정한 html로 join으로 합쳐 넣어라. 
+
+    //fe와 be의 변수명을 똑같이 해야 정보가 제대로 전달된다. 
+
+    const dividepage = movies.pageInfo.dividepage
+    //백에서 보내오는 요청중 무비스에서 페이지 정보에서.dividepage에서 가져오는 정보를 정의해준 것이다. 주문서와 이름표가 같아야함. 
+    const pages = []
+    //페이지라는 빈 배열을 만들었다. 
+
+    for (i = 1; i < dividepage; i++) {
+    pages.push(`<li>${i}</li>`)
+    //배열을 돌면서 넣어주는 것. 
+
+    }
+    document.getElementById('pagination').innerHTML = pages.join('')
   });
 //   document.getElementById('movies').innerHTML = html.join('')
 //여기도 아니구나 
