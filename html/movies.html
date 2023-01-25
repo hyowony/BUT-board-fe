@@ -91,6 +91,7 @@ const page = urlSearch.get('page') || 1
 console.log(page)
 
 
+
 fetch(`http://localhost:3100/movies?page=${page}`)
   .then((response) => response.json())
   .then((movies) => { console.log(movies)
@@ -105,7 +106,8 @@ fetch(`http://localhost:3100/movies?page=${page}`)
     
         <tr>
         <td align="center",width:5%>${movie.id}</td>
-         <td><a href="movie.html?id=${movie.id}">  ${movie.movie_title}</a></td>
+         <td><a href="movie.html?id=${movie.id}">${movie.movie_title}</a></td>
+         
          <td>${movie.name}</td>
          <td>${movie.hit_count}</td>
          <td>${movie.created_at}</td>
@@ -124,12 +126,15 @@ fetch(`http://localhost:3100/movies?page=${page}`)
     //fe와 be의 변수명을 똑같이 해야 정보가 제대로 전달된다. 
 
     const dividepage = movies.pageInfo.dividepage
+
+    console.log(`abc${dividepage}`)
+
     //백에서 보내오는 요청중 무비스에서 페이지 정보에서.dividepage에서 가져오는 정보를 정의해준 것이다. 주문서와 이름표가 같아야함. 
     const pages = []
     //페이지라는 빈 배열을 만들었다. 
 
     for (i = 1; i <= dividepage; i++) {
-    pages.push(`<li><a href=">page=${i}">${i}</li>`)
+    pages.push(`<Li><a href="page=${i}">${i}</Li>`)
     //배열을 돌면서 넣어주는 것. 
 
     }
