@@ -81,6 +81,8 @@ li {
         </tbody>
     </table>
     <ul id="pagination">
+      
+      <!-- //이걸 css로 가져올까? -->
 
 
     </ul>
@@ -140,6 +142,7 @@ fetch(`http://localhost:3100/movies?page=${page}`)
 
     }
     document.getElementById('pagination').innerHTML = pages.join('')
+    //페이지네이션이 여기에다 넣어주는 거니까 여기 다 건들여야하나? .
   });
 //   document.getElementById('movies').innerHTML = html.join('')
 //여기도 아니구나 
