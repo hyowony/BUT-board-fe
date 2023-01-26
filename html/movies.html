@@ -88,9 +88,11 @@ li {
 
     </ul>
 </body>
+
 <script>
 // 영화 리스트
 const urlSearch = new URLSearchParams(location.search);
+//Number로 숫자로 형 변형을 시켜준다. 
 const page = Number(urlSearch.get('page'))|| 1
 //1번에서 뒤로가기하면 0인 상태에서 안 내려가는데 13넘어서는 계속 넘어간다. 이 문제를 어떻게 해결할 것인가? 
 
@@ -142,6 +144,8 @@ fetch(`http://localhost:3100/movies?page=${page}`)
 
     //백에서 보내오는 요청중 무비스에서 페이지 정보에서.dividepage에서 가져오는 정보를 정의해준 것이다. 주문서와 이름표가 같아야함. 
     const pages = [`<li><a href="?page=${page-1}"><button>이전페이지</button></a></li>`,
+                                       `<li> ${page}</li>`,
+                                       //현재 페이지를 하나 더 넣어줬다. 
                     `<li><a href="?page=${page+1}"></li><button>다음페이지</button></a>`]
     //페이지라는 빈 배열을 만들었다. 
 
