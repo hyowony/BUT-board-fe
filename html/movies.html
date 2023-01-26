@@ -84,9 +84,12 @@ li {
       <!-- //자바스크립트로 리스트를 만들어서 뿌려주는 중  -->
       
       <!-- //이걸 css로 가져올까? -->
+      
 
 
     </ul>
+    <button>실험 </button>
+    <li><a href="?page=${page-1}"><button>이전페이지</button><button=${page}></button=$></a></li>, 
 </body>
 
 <script>
@@ -150,8 +153,9 @@ fetch(`http://localhost:3100/movies?page=${page}`)
     //페이지라는 빈 배열을 만들었다. 
 
     for (i = 1; i <= dividepage; i++) {
+      //이거 지우니까 페이지가 다 날아가는데?? 
     pages.push(`<li><a href="?page=${i}">${i}</a></li>`)
-    //배열을 돌면서 넣어주는 것. i를 뿌려줌 여기서 수정하면 됨. 현재페이지. ?=page를 건들면 된다. 
+    // //배열을 돌면서 넣어주는 것. i를 뿌려줌 여기서 수정하면 됨. 현재페이지. ?=page를 건들면 된다. 
     
 
     }
